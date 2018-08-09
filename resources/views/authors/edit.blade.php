@@ -5,9 +5,9 @@
         <div class="row">
             <div class="col-md-12">
             <ul class="breadcrumb">
-                <li><a href="{{ url('/home') }}">Dashboard</a></li>
-                <li><a href="{{ url('/admin/authors') }}">Penulis</a></li>
-                <li class="active">Ubah Penulis</li>
+            <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('/home') }}">Home</a> </li>
+            <li class="breadcrumb-item active" aria-current="page">Ubah Penulis</li>
+                
             </ul>
 
 <div class="panel panel-default">
