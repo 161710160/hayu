@@ -63,11 +63,11 @@
                         <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                         
                         <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
-                            <div class="col-md-offset-4 col-md-6">
-                            {!! app('captcha')->display() !!}
-                            {!! $errors->first('g-recaptcha-response', '<p class="help-block">:message</p>') !!}
+                            <div class="col-md-6 offset-md-4">
+                                {!! app('captcha')->display() !!}
+                                {!! $errors->first('g-recaptcha-response', '<p class="help-block">:message</p>') !!}
+                            </div>
                         </div>
-                    </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

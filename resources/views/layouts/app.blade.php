@@ -51,21 +51,28 @@
                                 <a class="nav-link" href="{{ route('authors.index') }}">Penulis</a></li>
                             <li class="nav-item {{ Request::is('admin/books') ? 'active ' : '' }}">
                                 <a class="nav-link" href="{{ route('books.index') }}">Buku</a></li>
+                            <li class="nav-item {{ Request::is('admin/members') ? 'active ' : '' }}">
+                                <a class="nav-link" href="{{ route('members.index') }}">Member</a>
                 
                             {{--  <li class="nav-item {{ Request::is('admin/books') ? 'active ' : '' }}">
                                 <a class="nav-link" href="{{ route('books.index') }}">Buku</a>
                             </li>
-                            <li class="nav-item {{ Request::is('admin/members') ? 'active ' : '' }}">
-                                <a class="nav-link" href="{{ route('members.index') }}">Member</a>
                             </li>
                             <li class="nav-item {{ Request::is('admin/statistics') ? 'active ' : '' }}">
                                 <a class="nav-link" href="{{ route('statistics.index') }}">Statistik</a>
-                            </li>  --}}
+                            </li>  
+                            <li class="nav-item {{ Request::is('admin/statistics') ? 'active ' : '' }}">
+                                <a class="nav-link" href="{{ route('statistics.index') }}">Statistik</a>
+                            </li> 
+                            <li class="nav-item {{ Request::is('settings/profile') ? 'active ' : '' }}">
+                                <a class="nav-link" href="{{ route('settings.profile') }}">Profil</a>
+                            </li>
+                            <li class="nav-item {{ Request::is('settings/profile') ? 'active ' : '' }}">
+                                <a class="nav-link" href="{{ route('settings.profile') }}">Profil</a>
+                            </li>--}}
                             @endrole
                             @if (auth()->check())
-                                {{--  <li class="nav-item {{ Request::is('settings/profile') ? 'active ' : '' }}">
-                                    <a class="nav-link" href="{{ url('/settings/profile') }}">Profil</a>
-                                </li>  --}}
+                            <li class="nav-item"><a class="nav-link"href="{{ url('/settings/profile') }}">Profil</a></li>
                             @endif
                         @endif
                     </ul>
