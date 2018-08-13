@@ -10,6 +10,7 @@ use Yajra\Datatables\Datatables;
 use App\Http\Requests\StoreMemberRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\UpdateMemberRequest;
 
 class MembersController extends Controller
 {
@@ -24,12 +25,10 @@ class MembersController extends Controller
             $members = Role::where('name', 'member')->first()->users;
             return Datatables::of($members)
             ->addColumn('action', function($member){
-            return view('datatable._action', [
-            'model'
-            => $member,
-            'form_url'
-            => route('members.destroy', $member->id),
-            'edit_url' => route('members.edit', $member->id),
+            return view('datatable._action2', [
+            'model'=> $member,
+            'form_url'=> route('members.destroy', $member->id),
+            'show_url' => route('members.show', $member->id),
             'confirm_message' => 'Yakin mau menghapus ' . $member->name . '?'
             
             ]);
@@ -99,7 +98,8 @@ class MembersController extends Controller
      */
     public function show($id)
     {
-        //
+        $member = User::find($id);
+        return view('members.show', compact('member'));
     }
 
     /**
@@ -120,10 +120,18 @@ class MembersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
+    public function update(UpdateMemberRequest $request, $id)
+        {
+            $member = User::find($id);
+            $member->update($request->only('name','email'));
+            Session::flash("flash_notification", [
+            "level"=>"success",
+            "message"=>"Berhasil menyimpan $member->name"
+            
+            ]);
+
+                return redirect()->route('members.index');
+            }
 
     /**
      * Remove the specified resource from storage.
@@ -133,6 +141,16 @@ class MembersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $member = User::find($id);
+        if ($member->hasRole('member')) {
+        $member->delete();
+        Session::flash("flash_notification", [
+        "level"=>"success",
+        "message"=>"Member berhasil dihapus"
+        
+        ]);
+        
+    }
+        return redirect()->route('members.index');
     }
 }

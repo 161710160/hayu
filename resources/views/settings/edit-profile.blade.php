@@ -3,17 +3,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <ul class="breadcrumb">
-                <li><a href="{{ url('/home') }}">Dashboard</a></li>
-                <li class="active">Ubah Profil</li>
-            </ul>
+        <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('/home') }}">Home</a> </li>
+                    <li class="breadcrumb-item active" aria-current="page">Profil</li>
+                </ol>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">
-        <h2 class="panel-title">Ubah Profil</h2>
-        </div>
+    <div class="card">
+        <div class="card-header">Ubah Profil</div>
+            <br>
 
-            <div class="panel-body">
+            <div class="card-body">
                 {!! Form::model(auth()->user(), ['url' => url('/settings/profile'),
                 'method' => 'post', 'class'=>'form-horizontal']) !!}
 

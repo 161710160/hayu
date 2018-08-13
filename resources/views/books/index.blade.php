@@ -12,7 +12,8 @@
             <div class="card">
                 <div class="card-header">Buku</div>
                 <br>
-                <p> <a class="btn btn-primary" href="{{ route('books.create') }}">Tambah</a> </p>
+                <p> <a class="btn btn-primary" href="{{ route('books.create') }}">Tambah</a>
+                <a class="btn btn-primary" href="{{ url('/admin/export/books') }}">Export</a> </p>
                 <div class="card-body">
                    {!! $html->table(['class'=>'table table-striped']) !!}
 

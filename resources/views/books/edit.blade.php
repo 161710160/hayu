@@ -9,12 +9,10 @@
                     <li class="breadcrumb-item active" aria-current="page">Ubah Buku</li>
         </ul>
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 class="panel-title">Ubah Buku</h2>
-                </div>
-
-            <div class="panel-body">
+            <div class="card">
+                <div class="card-header">Ubah Buku</div>
+                <br>
+             <div class="card-body">
             {!! Form::model($book, ['url' => route('books.update', $book->id),
             'method' => 'put', 'files'=>'true', 'class'=>'form-horizontal']) !!}
             @include('books._form')

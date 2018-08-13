@@ -10,12 +10,10 @@
                 
             </ul>
 
-<div class="panel panel-default">
-    <div class="panel-heading">
-    <h2 class="panel-title">Ubah Penulis</h2>
-</div>
-
-            <div class="panel-body">
+<div class="card">
+    <div class="card-header">Ubah Penulis</div>
+                <br>
+            <div class="card-body">
             {!! Form::model($author, ['url' => route('authors.update', $author->id),
             'method'=>'put', 'class'=>'form-horizontal']) !!}
             @include('authors._form')

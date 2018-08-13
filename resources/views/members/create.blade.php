@@ -4,17 +4,15 @@
     <div class="row">
         <div class="col-md-12">
             <ul class="breadcrumb">
-                <li><a href="{{ url('/home') }}">Dashboard</a></li>
-                <li><a href="{{ url('/admin/members') }}">Member</a></li>
-                <li class="active">Tambah Member</li>
+            <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('/home') }}">Home</a> </li>
+                    <li class="breadcrumb-item active" aria-current="page">Tambah Member</li>
+                </ol>
             </ul>
-
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2 class="panel-title">Tambah Member</h2>
-        </div>
-
-    <div class="panel-body">
+    <div class="card">
+        <div class="card-header">Tambah Member</div>
+            <br>
+    <div class="card-body">
         {!! Form::open(['url' => route('members.store'),
         'method' => 'post', 'files'=>'true', 'class'=>'form-horizontal']) !!}
         @include('members._form')
